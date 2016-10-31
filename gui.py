@@ -10,7 +10,6 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 import ui_main
 import ui_info
 
-# from parse import TextParser
 import parse
 
 class ResiltInfo(QtWidgets.QMainWindow, ui_info.Ui_info_form):
@@ -65,7 +64,7 @@ class Punctuator(QtWidgets.QMainWindow, ui_main.Ui_MainWindow):
         QtWidgets.QShortcut(QtGui.QKeySequence(QtCore.Qt.Key_Insert), self.rule_list).activated.connect(self.rule_add)
         QtWidgets.QShortcut(QtGui.QKeySequence(QtCore.Qt.Key_Delete), self.rule_list).activated.connect(self.rule_remove)
         QtWidgets.QShortcut(QtGui.QKeySequence(QtCore.Qt.Key_Control + QtCore.Qt.Key_Up), self.rule_list).activated.connect(self.rule_up)
-        QtWidgets.QShortcut(QtGui.QKeySequence(QtCore.Qt.Key_Escape + QtCore.Qt.Key_Down), self.rule_list).activated.connect(self.rule_down)
+        QtWidgets.QShortcut(QtGui.QKeySequence(QtCore.Qt.Key_Control + QtCore.Qt.Key_Down), self.rule_list).activated.connect(self.rule_down)
 
         self.rule_template_edit.textChanged.connect(self.template_edit)
 
@@ -89,15 +88,17 @@ class Punctuator(QtWidgets.QMainWindow, ui_main.Ui_MainWindow):
                     self._fill_rule_list()
 
     def save_rules(self):
-        with open(self.rules_fn, 'wt', encoding = 'utf-8') as rules_f:
-            json.dump([r.to_json() for r in self.rules], rules_f, indent=4, ensure_ascii=False)
+        if self.rules_fn and self.rules:
+            with open(self.rules_fn, 'wt', encoding = 'utf-8') as rules_f:
+                json.dump([r.to_json() for r in self.rules], rules_f, indent=4, ensure_ascii=False)
 
     def save_as_rules(self):
-        file = QtWidgets.QFileDialog.getSaveFileName(self, "Выберете файл")
-        if file:
-            if file[0] != '':
-                self.rules_fn = file[0]
-                self.save_rules()
+        if self.rules:
+            file = QtWidgets.QFileDialog.getSaveFileName(self, "Выберете файл")
+            if file:
+                if file[0] != '':
+                    self.rules_fn = file[0]
+                    self.save_rules()
 
     def load_text(self):
         file = QtWidgets.QFileDialog.getOpenFileName(self, "Pick a file")
@@ -114,8 +115,9 @@ class Punctuator(QtWidgets.QMainWindow, ui_main.Ui_MainWindow):
         self.process()
 
     def save_text(self):
-        with open(self.text_fn, 'wt', encoding = 'utf-8') as text_f:
-            text_f.write(self.text_input_edit.toPlainText())        
+        if self.text_fn:
+            with open(self.text_fn, 'wt', encoding = 'utf-8') as text_f:
+                text_f.write(self.text_input_edit.toPlainText())        
 
     def save_as_text(self):
         file = QtWidgets.QFileDialog.getSaveFileName(self, "Pick a file")
@@ -137,9 +139,7 @@ class Punctuator(QtWidgets.QMainWindow, ui_main.Ui_MainWindow):
             self.result_list.addItem(r[0])
 
     def result_info(self):
-        data = self.result[self.result_list.currentRow()][1]
-        print(data)
-        self.info = ResiltInfo(data)
+        self.info = ResiltInfo(self.result[self.result_list.currentRow()][1])
         info_gm = self.info.frameGeometry()
         center = self.frameGeometry().center()
         info_gm.moveCenter(center)

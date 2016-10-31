@@ -48,7 +48,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="text_output_edit"/>
+          <widget class="QListWidget" name="result_list"/>
          </item>
         </layout>
        </widget>
@@ -123,6 +123,9 @@
              <property name="text">
               <string>▲</string>
              </property>
+             <property name="shortcut">
+              <string>Ctrl+Up</string>
+             </property>
             </widget>
            </item>
            <item>
@@ -135,6 +138,9 @@
              </property>
              <property name="text">
               <string>▼</string>
+             </property>
+             <property name="shortcut">
+              <string>Ctrl+Down</string>
              </property>
             </widget>
            </item>
@@ -180,7 +186,7 @@
           </layout>
          </item>
          <item>
-          <widget class="QListWidget" name="rules_name_list">
+          <widget class="QListWidget" name="rule_list">
            <property name="dragEnabled">
             <bool>false</bool>
            </property>
@@ -198,7 +204,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="rules_teamplate_edit"/>
+          <widget class="QTextEdit" name="rule_template_edit"/>
          </item>
         </layout>
        </widget>
@@ -222,9 +228,11 @@
     </property>
     <addaction name="action_load_rule"/>
     <addaction name="action_save_rule"/>
+    <addaction name="action_save_as_rule"/>
     <addaction name="separator"/>
     <addaction name="action_load_text"/>
     <addaction name="action_save_text"/>
+    <addaction name="action_save_as_text"/>
     <addaction name="separator"/>
     <addaction name="action_exit"/>
    </widget>
@@ -247,12 +255,22 @@
   </action>
   <action name="action_save_text">
    <property name="text">
-    <string>Сохранить текс</string>
+    <string>Сохранить текст</string>
    </property>
   </action>
   <action name="action_exit">
    <property name="text">
     <string>Выход</string>
+   </property>
+  </action>
+  <action name="action_save_as_rule">
+   <property name="text">
+    <string>Сохранить правила как...</string>
+   </property>
+  </action>
+  <action name="action_save_as_text">
+   <property name="text">
+    <string>Сохранить текст как...</string>
    </property>
   </action>
  </widget>

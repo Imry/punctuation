@@ -5,7 +5,6 @@ import re
 
 import pymorphy2
 
-# from peg import PEGParser, Rule
 import peg
 
 class TextParser:
@@ -59,15 +58,6 @@ class TextParser:
         self.parser = parser()
         self.morph = pymorphy2.MorphAnalyzer()
 
-    # def add_rule(self, rule):
-    #     self.rules.append(rule)
-    #     return self.rules
-
-    # def get_rule(self, name):
-    #     for r in self.rules:
-    #         if r.name == name:
-    #             return r
-
     def get_morph_data(self, sentence):
         return [self.morph.parse(w)[0].tag for w in sentence.strip().split()]
 
@@ -86,9 +76,3 @@ class TextParser:
 
     def parse_rule(self, rule):
         return self.parser.parse_rule(rule)
-
-    # def add(self, rule):
-    #     r = self.parser.parse_rule(rule)
-    #     if r:
-    #         self.rules.append(r)
-    #     return r

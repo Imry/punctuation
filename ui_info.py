@@ -12,13 +12,14 @@ class Ui_info_form(object):
     def setupUi(self, info_form):
         info_form.setObjectName("info_form")
         info_form.resize(741, 546)
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(info_form)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.verticalLayout = QtWidgets.QVBoxLayout(info_form)
+        self.verticalLayout.setObjectName("verticalLayout")
         self.info_table = QtWidgets.QTableWidget(info_form)
         self.info_table.setObjectName("info_table")
         self.info_table.setColumnCount(0)
         self.info_table.setRowCount(0)
-        self.verticalLayout_2.addWidget(self.info_table)
+        self.verticalLayout.addWidget(self.info_table)
+        self.setLayout(verticalLayout)
 
         self.retranslateUi(info_form)
         QtCore.QMetaObject.connectSlotsByName(info_form)
