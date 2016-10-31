@@ -15,7 +15,11 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <widget class="QTableWidget" name="tableWidget"/>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTableWidget" name="info_table"/>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

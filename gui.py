@@ -12,19 +12,22 @@ import ui_info
 
 import parse
 
-class ResiltInfo(QtWidgets.QMainWindow, ui_info.Ui_info_form):
+class ResiltInfo(QtWidgets.QWidget, ui_info.Ui_info_form):
     def __init__(self, data):
         super(self.__class__, self).__init__()
         self.setupUi(self)
 
         self.info_table.resizeColumnsToContents()
         self.info_table.resizeRowsToContents()
-        self.info_table.setColumnCount(2)
+        self.info_table.setColumnCount(3)
         self.info_table.setHorizontalHeaderLabels(['Правило', 'Шаблон', 'Результат'])
         self.info_table.setRowCount(len(data))
         for row, item in enumerate(data):
             for column, field in enumerate(item):
                 self.info_table.setItem(row, column, QtWidgets.QTableWidgetItem(field))
+        self.info_table.adjustSize()
+        self.info_table.horizontalHeader().setStretchLastSection(True)
+
 
 class Punctuator(QtWidgets.QMainWindow, ui_main.Ui_MainWindow):
     def __init__(self):
