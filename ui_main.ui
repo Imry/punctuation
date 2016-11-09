@@ -6,73 +6,155 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>996</width>
-    <height>801</height>
+    <width>1087</width>
+    <height>854</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Пунктуатор</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QSplitter" name="splitter_3">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QSplitter" name="splitter_2">
       <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+       <enum>Qt::Vertical</enum>
       </property>
+      <widget class="QWidget" name="verticalLayoutWidget_2">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Данные</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line_5">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_text_load">
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Загрузить текст</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/file.png</normaloff>icons/file.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>18</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_text_save">
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Сохранить текст</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/file-edit.png</normaloff>icons/file-edit.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>18</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_text_save_as">
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Сохранить текст как...</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/file-add.png</normaloff>icons/file-add.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>18</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableView" name="table_data"/>
+        </item>
+       </layout>
+      </widget>
       <widget class="QSplitter" name="splitter">
        <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <widget class="QWidget" name="verticalLayoutWidget">
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Текст</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QTextEdit" name="text_input_edit"/>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="verticalLayoutWidget_2">
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>Результат</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QListWidget" name="result_list"/>
-         </item>
-        </layout>
-       </widget>
-      </widget>
-      <widget class="QSplitter" name="splitter_2">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+        <enum>Qt::Horizontal</enum>
        </property>
        <widget class="QWidget" name="verticalLayoutWidget_3">
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>Правила</string>
-           </property>
-          </widget>
-         </item>
-         <item>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="QPushButton" name="rule_add_btn">
+            <widget class="QLabel" name="label_3">
              <property name="maximumSize">
               <size>
-               <width>30</width>
+               <width>16777215</width>
                <height>16777215</height>
               </size>
              </property>
@@ -83,31 +165,61 @@
               </font>
              </property>
              <property name="text">
-              <string>+</string>
+              <string>Правила</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="rule_remove_btn">
+            <widget class="Line" name="line_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_rule_apply">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
              <property name="maximumSize">
               <size>
-               <width>30</width>
+               <width>16777215</width>
                <height>16777215</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <weight>75</weight>
-               <bold>true</bold>
+               <weight>50</weight>
+               <bold>false</bold>
               </font>
              </property>
+             <property name="toolTip">
+              <string>Применить правила</string>
+             </property>
              <property name="text">
-              <string>-</string>
+              <string>Применить</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/check-alt.png</normaloff>icons/check-alt.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>18</height>
+              </size>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="rule_up_btn">
+            <widget class="Line" name="line">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_rule_add">
              <property name="maximumSize">
               <size>
                <width>30</width>
@@ -120,39 +232,26 @@
                <bold>false</bold>
               </font>
              </property>
+             <property name="toolTip">
+              <string>Добавить правило</string>
+             </property>
              <property name="text">
-              <string>▲</string>
+              <string/>
              </property>
-             <property name="shortcut">
-              <string>Ctrl+Up</string>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/add.png</normaloff>icons/add.png</iconset>
              </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="rule_down_btn">
-             <property name="maximumSize">
+             <property name="iconSize">
               <size>
-               <width>30</width>
-               <height>16777215</height>
+               <width>24</width>
+               <height>18</height>
               </size>
              </property>
-             <property name="text">
-              <string>▼</string>
-             </property>
-             <property name="shortcut">
-              <string>Ctrl+Down</string>
-             </property>
             </widget>
            </item>
            <item>
-            <widget class="Line" name="line">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="rule_apply_btn">
+            <widget class="QPushButton" name="btn_rule_remove">
              <property name="maximumSize">
               <size>
                <width>30</width>
@@ -161,12 +260,168 @@
              </property>
              <property name="font">
               <font>
-               <weight>75</weight>
-               <bold>true</bold>
+               <weight>50</weight>
+               <bold>false</bold>
               </font>
              </property>
+             <property name="toolTip">
+              <string>Удалить правило</string>
+             </property>
              <property name="text">
-              <string>↻</string>
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/cancel.png</normaloff>icons/cancel.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>18</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_rule_up">
+             <property name="maximumSize">
+              <size>
+               <width>30</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string>Повысить приоритет правила</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/arrow-1-up.png</normaloff>icons/arrow-1-up.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>18</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_rule_down">
+             <property name="maximumSize">
+              <size>
+               <width>30</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Понизить приоритет правила</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/arrow-1-down.png</normaloff>icons/arrow-1-down.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>18</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="Line" name="line_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_rule_load">
+             <property name="maximumSize">
+              <size>
+               <width>30</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Загрузить правила</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/file.png</normaloff>icons/file.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>18</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_rule_save">
+             <property name="maximumSize">
+              <size>
+               <width>30</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Сохранить правила</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/file-edit.png</normaloff>icons/file-edit.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>19</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_rule_save_as">
+             <property name="maximumSize">
+              <size>
+               <width>30</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Сохранить правила как...</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/file-add.png</normaloff>icons/file-add.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>19</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -197,11 +452,67 @@
        <widget class="QWidget" name="verticalLayoutWidget_4">
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
-          <widget class="QLabel" name="label_4">
-           <property name="text">
-            <string>Шаблоны</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Шаблоны</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="Line" name="line_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_rule_check">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string>Проверить шаблоны</string>
+             </property>
+             <property name="text">
+              <string>Проверить</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/3D-Z-Axis-Rotation.png</normaloff>icons/3D-Z-Axis-Rotation.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>18</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
          </item>
          <item>
           <widget class="QTextEdit" name="rule_template_edit"/>
@@ -218,7 +529,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>996</width>
+     <width>1087</width>
      <height>25</height>
     </rect>
    </property>
@@ -226,51 +537,212 @@
     <property name="title">
      <string>Файл</string>
     </property>
-    <addaction name="action_load_rule"/>
-    <addaction name="action_save_rule"/>
-    <addaction name="action_save_as_rule"/>
+    <addaction name="action_rule_load"/>
+    <addaction name="action_rule_save"/>
+    <addaction name="action_rule_save_as"/>
     <addaction name="separator"/>
-    <addaction name="action_load_text"/>
-    <addaction name="action_save_text"/>
-    <addaction name="action_save_as_text"/>
+    <addaction name="action_text_load"/>
+    <addaction name="action_text_save"/>
+    <addaction name="action_text_save_as"/>
     <addaction name="separator"/>
     <addaction name="action_exit"/>
    </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Правило</string>
+    </property>
+    <addaction name="action_rule_add"/>
+    <addaction name="action_rule_remove"/>
+    <addaction name="action_rule_up"/>
+    <addaction name="action_rule_down"/>
+    <addaction name="separator"/>
+    <addaction name="action_rule_apply"/>
+    <addaction name="action_rule_check"/>
+   </widget>
    <addaction name="menuAfqk"/>
+   <addaction name="menu"/>
   </widget>
-  <action name="action_load_rule">
+  <action name="action_rule_load">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/file.png</normaloff>icons/file.png</iconset>
+   </property>
    <property name="text">
     <string>Загрузить правила</string>
    </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
   </action>
-  <action name="action_save_rule">
+  <action name="action_rule_save">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/file-edit.png</normaloff>icons/file-edit.png</iconset>
+   </property>
    <property name="text">
     <string>Сохранить правила</string>
    </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
   </action>
-  <action name="action_load_text">
+  <action name="action_text_load">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/file.png</normaloff>icons/file.png</iconset>
+   </property>
    <property name="text">
     <string>Загрузить текст</string>
    </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
   </action>
-  <action name="action_save_text">
+  <action name="action_text_save">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/file-edit.png</normaloff>icons/file-edit.png</iconset>
+   </property>
    <property name="text">
     <string>Сохранить текст</string>
    </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
   </action>
   <action name="action_exit">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/logout.png</normaloff>icons/logout.png</iconset>
+   </property>
    <property name="text">
     <string>Выход</string>
    </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
   </action>
-  <action name="action_save_as_rule">
+  <action name="action_rule_save_as">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/file-add.png</normaloff>icons/file-add.png</iconset>
+   </property>
    <property name="text">
     <string>Сохранить правила как...</string>
    </property>
+   <property name="toolTip">
+    <string>Сохранить правила как...</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
   </action>
-  <action name="action_save_as_text">
+  <action name="action_text_save_as">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/file-add.png</normaloff>icons/file-add.png</iconset>
+   </property>
    <property name="text">
     <string>Сохранить текст как...</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_rule_add">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/add.png</normaloff>icons/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Добавить</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_rule_remove">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/cancel.png</normaloff>icons/cancel.png</iconset>
+   </property>
+   <property name="text">
+    <string>Удалить</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_rule_up">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/arrow-1-up.png</normaloff>icons/arrow-1-up.png</iconset>
+   </property>
+   <property name="text">
+    <string>Вверх</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_rule_down">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/arrow-1-down.png</normaloff>icons/arrow-1-down.png</iconset>
+   </property>
+   <property name="text">
+    <string>Вниз</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_rule_apply">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/check-alt.png</normaloff>icons/check-alt.png</iconset>
+   </property>
+   <property name="text">
+    <string>Применить правила</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_rule_check">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/3D-Z-Axis-Rotation.png</normaloff>icons/3D-Z-Axis-Rotation.png</iconset>
+   </property>
+   <property name="text">
+    <string>Проверить шаблоны</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_settings_font">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/keyboard.png</normaloff>icons/keyboard.png</iconset>
+   </property>
+   <property name="text">
+    <string>Горячие клавиши</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_settings_hotkey">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/font.png</normaloff>icons/font.png</iconset>
+   </property>
+   <property name="text">
+    <string>Шрифт</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
    </property>
   </action>
  </widget>

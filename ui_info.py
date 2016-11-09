@@ -8,7 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_info_form(object):
+class Ui_InfoForm(object):
     def setupUi(self, info_form):
         info_form.setObjectName("info_form")
         info_form.resize(741, 546)

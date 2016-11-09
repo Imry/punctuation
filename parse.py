@@ -23,7 +23,7 @@ class TextParser:
             return self.handler.str()
 
     class Rule:
-        def __init__(self, name, tmpl = None, text = None):
+        def __init__(self, name, tmpl = None, text = None, changed = True):
             self.name = name
             if tmpl:
                 self.tmpl = tmpl
@@ -33,6 +33,7 @@ class TextParser:
                 self.text = text
             else:
                 self.text = []
+            self.changed = changed
 
         def __call__(self, sentence):
             r = []
@@ -57,14 +58,20 @@ class TextParser:
         self.rules = []
         self.parser = parser()
         self.morph = pymorphy2.MorphAnalyzer()
+        self.morph_cache = dict()
 
-    def get_morph_data(self, sentence):
-        return [self.morph.parse(w)[0].tag for w in sentence.strip().split()]
+    def _morph_word(self, w):
+        if w not in self.morph_cache:
+            self.morph_cache[w] = self.morph.parse(w)[0].tag
+        return self.morph_cache[w]
+
+    def _morpth_sentence(self, sentence):
+        return [self._morph_word(w) for w in sentence.strip().split()]
 
     def parse(self, sentence, rules = None):
         if not rules:
             rules = self.rules
-        sentence = self.parser.prepare_sentence(sentence, self.get_morph_data(sentence))
+        sentence = self.parser.prepare_sentence(sentence, self._morpth_sentence(sentence))
         res = []
         for r in rules:
             ss, chain = r(sentence)

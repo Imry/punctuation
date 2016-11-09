@@ -12,12 +12,12 @@ grammar_rule = """
     rule_body = simple_rule / add_punctuation / remove_punctuation
     simple_rule = word ((or / and) word)*
     and = "&"
-    word = space (not space)? (primitive_word / ("_" primitive_part "_")) space
-    primitive_word = ~"[йцукенгшщзхъфывапролджэячсмитьбю]+"
-    primitive_part = ~"[QWERTYUIOPASDFGHJKLZXCVBNM]+"
     or = "|"
-    add = "+"
+    word = space (not space)? (primitive_word / ("_" primitive_part "_")) space
     not = "!"
+    primitive_word = ~"[йцукеёнгшщзхъфывапролджэячсмитьбю]+"
+    primitive_part = ~"[QWERTYUIOPASDFGHJKLZXCVBNM]+"
+    add = "+"
     remove = "-"
     add_punctuation = add punctuation
     remove_punctuation = remove punctuation
@@ -84,12 +84,16 @@ class PEGParser(parsimonious.nodes.NodeVisitor):
         # self.pattern += '\s*'
 
         text = self.SimpleRule(n).text
-        self.pattern += '(?P<space_%d>\s*)'%(self.idx)
-        self.repl += '\g<space_%d>'%(self.idx)
+        self.pattern += r'(?P<space_%d>\s*\b)'%(self.idx)
+        self.repl += r'\g<space_%d>'%(self.idx)
         self.idx += 1
-        self.pattern += '(?P<rule_%d>%s)'%(self.idx, text)
-        self.repl += '\g<rule_%d>'%(self.idx)
+        self.pattern += r'(?P<rule_%d>%s)'%(self.idx, text)
+        self.repl += r'\g<rule_%d>'%(self.idx)
         self.idx += 1
+
+# (\,)?(?P<space_1>\s*)(?P<rule_2>вернее\([^\(\)]*?\)|точнее\([^\(\)]*?\))(\,)?
+# ,\g<space_1>\g<rule_2>,
+
 
     def visit_add_punctuation(self, n, c):
         ptn = self.PunctuationRule(n).text
@@ -147,9 +151,10 @@ if __name__ == '__main__':
             '(-,)(точнее)(-,)(показания|узнаю)',
             '(по)(-,)(точнее)(-,)']
 
+    rule = '(+,)(вернее|точнее)(+,)'
     print(rule)
-    r = RuleParser()
-    r.parse_rule(rule)
+    r = PEGParser()
+    pp = r.parse_rule(rule)
     # print()
     print(r.pattern)
     print(r.repl)
@@ -157,8 +162,11 @@ if __name__ == '__main__':
 
     t = re.sub(r.pattern,
         r.repl,
-        text_h)
+        'а точнее всегда')
 
+    t = pp('а() точнее() всегда()')
+    print(t)
+    t = pp('поточнее()')
     print(t)
 
     # grm = parsimonious.grammar.Grammar(grammar_parse_rule)
